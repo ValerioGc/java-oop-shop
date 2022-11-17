@@ -8,13 +8,14 @@ public class Product {
 	String name;
 	String description;
 	int price;
-	int tax = 20;
+	int tax;
 	char eur = '\u20ac';
 	
 	public Product(String name, String description, int price) {
 		this.name = name;
 		this.description = description;
 		this.price = price;	
+		this.tax = 20;
 	}
 // Random code generator
 	public int getRndCode() {
@@ -22,26 +23,22 @@ public class Product {
 		int code = rnd.nextInt(89999) + 10000;
 		return code;
 	}
-	
 // Price Calculator 
 	public int getPrice() {
 		return price;
 	}
-	
-	
 // Price + Taxes calculator 
 	public double afterTaxesPrice() {
 		double taxPrices = ((double)this.price) + ((((double)this.price) * 20) / 100); 
 		return taxPrices;
 	}
-	
-	@Override
+@Override
 	public String toString() {
 		return  "Nome: " + name + 
 				"\nCodice: " + getRndCode() +
 				"\nDescrizione: " + description + 
 				"\nPrezzo: " + getPrice() + " " + eur +
-				"\nPrezzo con IVA: " + afterTaxesPrice() + " " + eur;
+				"\nPrezzo con Iva: " + afterTaxesPrice() + " " + eur;
 	}
 	
 }
